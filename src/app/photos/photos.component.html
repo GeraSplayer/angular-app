@@ -1,0 +1,28 @@
+<div class="row justify-content-center">
+  <div class="col-md-1">
+    <h1>Photos</h1>
+  </div>
+</div>
+
+<mat-paginator 
+[length]= "photos.length" 
+[pageSize]="page_size"
+[pageSizeOptions]="[5, 10, 25, 100]"
+aria-label="Select page"
+(page)="handlePage($event)">
+</mat-paginator>
+
+<div *ngFor="let photo of photos | paginacion:page_size:page_number">  
+  <mat-card class="example-card">
+    <mat-card-title-group>
+      <mat-card-title>Tittle: {{photo.title}} - {{photo.id}}</mat-card-title>
+      <mat-card-subtitle>User #{{photo.albumId}}
+      </mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content>
+      <p>{{photo.thumbnailUrl}}</p>
+      <img mat-card-md-image src="{{photo.thumbnailUrl}}" alt="{{photo.title}}">
+    </mat-card-content>
+  </mat-card>
+  <br>
+</div>

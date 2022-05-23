@@ -1,0 +1,20 @@
+<div>
+    <label for="titulo" class="form-label">Titulo</label>
+    <div class="input-group mb-3">
+        <input [(ngModel)]="post.title" type="text" class="form-control" id="titulo" >
+        <button *ngIf="editing" (click)="saveOnlyTPost()" class="btn btn-outline-secondary" type="button" id="button-addon2">Guarda Titulo</button>
+    </div>
+    
+    <label for="user" class="form-label">UserID</label>
+    <div class="input-group mb-3">
+        <input [(ngModel)]="post.userId" type="text" class="form-control" id="user">        
+        <button *ngIf="editing" (click)="saveOnlyIDPost()" class="btn btn-outline-secondary" type="button" id="button-addon2">Guarda ID</button>
+    </div>
+    <div class="mb-3">
+        <label for="cuerpo" class="form-label">Body</label>
+        <textarea [(ngModel)]="post.body" class="form-control" id="cuerpo" rows="5"></textarea>
+        </div>
+    <div class="d-grid gap-2">
+        <button (click)="savePost()" class="btn btn-primary">Crear/Guardar</button>
+    </div>
+</div>

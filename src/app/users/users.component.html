@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+  <div class="col-md-1">
+    <h1>Users</h1>
+  </div>
+</div>
+
+<mat-paginator 
+[length]= "users.length" 
+[pageSize]="page_size"
+[pageSizeOptions]="[5, 10, 25, 100]"
+aria-label="Select page"
+(page)="handlePage($event)">
+</mat-paginator>
+
+<div *ngFor="let user of users | paginacion:page_size:page_number">  
+  <mat-card class="example-card">
+    <mat-card-title-group>
+      <mat-card-title>Tittle: {{user.name}} - {{user.id}}</mat-card-title>
+      <mat-card-subtitle>User #{{user.username}}
+      </mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content>
+      {{user.email}}
+    </mat-card-content>
+  </mat-card>
+  <br>
+</div>
